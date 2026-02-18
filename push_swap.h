@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:45 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/18 18:09:47 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/18 19:34:37 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <unistd.h>
 # include <stdio.h>
+# include <stdlib.h>
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -23,7 +25,12 @@ typedef struct s_list
     struct s_list    *previous;
 }    t_list;
 
+
+int *ft_parser(int argc, char **argv);
 char	**ft_split(char const *s, char c);
 int	ft_isdigit(int c);
+void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_strdup(const char *s);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
 #endif

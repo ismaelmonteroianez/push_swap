@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/18 18:09:03 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/18 19:48:50 by ismonter         ###   ########.fr       */
+/*   Created: 2026/02/18 19:33:55 by ismonter          #+#    #+#             */
+/*   Updated: 2026/02/18 19:34:27 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	t_list	*a;
-	t_list	*b;
-	int		*array_nbr;
+	size_t	i;
+	size_t	j;
 
-	array_nbr = ft_parser(argc, argv);
-	if (array_nbr == NULL)
-		return(0);
-	
+	i = 0;
+	j = 0;
+	while (src[i] != '\0')
+		i++;
+	if (size == 0)
+		return (i);
+	while (src[j] != '\0')
+	{
+		if (j >= size - 1)
+		{
+			dst[j] = '\0';
+			return (i);
+		}
+		dst[j] = src[j];
+		j++;
+	}
+	dst[j] = '\0';
+	return (i);
 }

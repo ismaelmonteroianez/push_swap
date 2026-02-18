@@ -3,6 +3,7 @@
 3. Transformar los strings de numeros, en digitos con atol
 4. Comprobar que los numeros esten en rango de int
 5. Comprobar que no haya numeros repetidos
+
 6. Pasar los numeros a la lista a
 
 t_list a - Todos los nodos de numeros
@@ -13,3 +14,4 @@ t_list b - Va a estar vacia al principio
 Uno simple.
 Uno medio.
 Y uno complejo.
+

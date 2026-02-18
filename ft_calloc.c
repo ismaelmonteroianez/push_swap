@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/18 18:09:03 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/18 19:48:50 by ismonter         ###   ########.fr       */
+/*   Created: 2026/02/18 18:46:58 by ismonter          #+#    #+#             */
+/*   Updated: 2026/02/18 18:58:18 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	t_list	*a;
-	t_list	*b;
-	int		*array_nbr;
+	void	*result;
+	size_t	i;
 
-	array_nbr = ft_parser(argc, argv);
-	if (array_nbr == NULL)
-		return(0);
-	
+	i = 0;
+	if (nmemb * size > INT_MAX)
+		return (NULL);
+	result = malloc(nmemb * size);
+	if (result == NULL)
+		return (NULL);
+	while (((char *)result)[i] != '\0')
+	{
+		((char *)result)[i] = '\0';
+		i++;
+	}
+	return (result);
 }
