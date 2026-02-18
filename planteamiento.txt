@@ -1,0 +1,15 @@
+1. Separar el string de numeros en un array de stringscon split
+2. Comprobamos que lo que nos han dado son numeros con isdigit
+3. Transformar los strings de numeros, en digitos con atol
+4. Comprobar que los numeros esten en rango de int
+5. Comprobar que no haya numeros repetidos
+6. Pasar los numeros a la lista a
+
+t_list a - Todos los nodos de numeros
+t_list b - Va a estar vacia al principio
+
+7. Comprobar el rango de desordenacion de la lista
+8. Dependiendo del rango, tendremos tres algoritmos
+Uno simple.
+Uno medio.
+Y uno complejo.
