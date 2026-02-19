@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/18 18:09:03 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/19 17:57:34 by ismonter         ###   ########.fr       */
+/*   Created: 2026/02/19 18:14:34 by ismonter          #+#    #+#             */
+/*   Updated: 2026/02/19 18:20:55 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+long    atol(char   *str)
 {
-	t_list	*a;
-	t_list	*b;
-	int		*array_nbr;
-
-	array_nbr = ft_parser(argc, argv);
-	if (array_nbr == NULL)
-		return(0);
-	return (0);
-	
+    
+    
+    
+    
+    
 }

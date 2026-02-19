@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_free_matrix.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/18 18:09:03 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/19 17:57:34 by ismonter         ###   ########.fr       */
+/*   Created: 2026/02/19 17:39:17 by ismonter          #+#    #+#             */
+/*   Updated: 2026/02/19 18:03:20 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	free_partial_matrix(char **matrix, int pos)
 {
-	t_list	*a;
-	t_list	*b;
-	int		*array_nbr;
+	while (pos > 0)
+		free(matrix[--pos]);
+	free(matrix);
+}
 
-	array_nbr = ft_parser(argc, argv);
-	if (array_nbr == NULL)
-		return(0);
-	return (0);
-	
+void   free_full_matrix(char **matrix)
+{
+    int i;
+
+    i = 0;
+    while(matrix[i] != NULL)
+        i++;
+    while (i >= 0)
+    {
+		free(matrix[i]);
+        i--;
+    }
+	free(matrix);
 }
