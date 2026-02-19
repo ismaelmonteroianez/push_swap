@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:45 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/19 18:01:10 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/19 19:56:41 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,17 @@ typedef struct s_list
 }    t_list;
 
 
-int *ft_parser(int argc, char **argv);
+int     *ft_parser(int argc, char **argv);
 char	**ft_split(char const *s, char c);
-int	ft_isdigit(int c);
+int	    ft_isdigit(int c);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 void	free_partial_matrix(char **matrix, int pos);
 void    free_full_matrix(char **matrix);
+int     free_error_matrix(char **matrix);
+long	ft_atol(char *str);
+int     matrix_len(char **matrix);
+int	    ft_check_int(long n);
 
 #endif

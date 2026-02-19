@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_matrix.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 17:39:17 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/19 18:03:20 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/19 19:04:07 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,20 @@ void   free_full_matrix(char **matrix)
         i--;
     }
 	free(matrix);
+}
+int free_error_matrix(char **matrix)
+{
+    free_full_matrix(matrix);
+	write(2, "Error\n", 6);
+	return (0);
+}
+
+int matrix_len(char **matrix)
+{
+    int i;
+    
+    i = 0;
+    while(matrix[i] != NULL)
+        i++;
+    return (i);
 }

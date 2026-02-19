@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_tools.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 18:14:34 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/19 20:08:47 by davgarc4         ###   ########.fr       */
+/*   Created: 2026/02/19 19:26:52 by davgarc4          #+#    #+#             */
+/*   Updated: 2026/02/19 20:09:55 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	ft_atol(char *str)
+int	ft_check_int(long n)
 {
-	int	i;
-	int	sign;
-	long	result;
-
-	i = 0;
-	sign = 1;
-	result = 0;
-	if (str[i] == '-')
+	if (n > INT_MAX || n < INT_MIN)
 	{
-		sign = -1;
-		i++;
+		return (0);
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result *= 10;
-		result += str[i] - '0';
-		i++;
-	}
-	result = result * sign;
-	return (result);
+	else
+		return (1);
 }
