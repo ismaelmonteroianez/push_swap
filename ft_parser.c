@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parser.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:41:47 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/19 20:08:08 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/02/20 19:33:46 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,14 +92,35 @@ int	*ft_array_number_gen(char **matrix)
 	free_full_matrix(matrix);
 	return(numbers);
 }
+int	check_repeated_numbers(int	*numbers, int	numbers_size)
+{
+	int	i;
+	int	j;
+	
+	i = 0;
+	while(i < numbers_size - 1)
+	{
+		j = i + 1;
+		while(j < numbers_size)
+		{
+			if (numbers[i] == numbers[j])
+			{
+				free(numbers);
+				write(2, "Error\n", 6);
+				return (0);
+			}
+			j++;
+		}
+		i++;
+	}	
+	return (1);
+}
 
-
-int *ft_parser(int argc, char **argv)
+int *ft_parser(int argc, char **argv, int *numbers_size)
 {
     char	**matrix;
 	int		check;
 	int		*numbers;
-	int		numbers_size;
 	
 	matrix = ft_matrix_gen(argc, argv);
     if (matrix == NULL)
@@ -107,17 +128,17 @@ int *ft_parser(int argc, char **argv)
 	check = ft_check_nbr(matrix);
 	if(check == 0)
 		return (NULL);
-	numbers_size = matrix_len(matrix);
+	*numbers_size = matrix_len(matrix);
 	numbers = ft_array_number_gen(matrix);
 	if (numbers == NULL)
 		return (NULL);
-
-	int i;
-	i = 0;
-	while (i < numbers_size)
+	if (check_repeated_numbers(numbers, *numbers_size) == 0)
+		return (NULL);
+	if (ft_check_order(numbers, *numbers_size) == 1)
 	{
-		printf("%d\n", numbers[i]);
-		i++;
+		free(numbers);
+		printf("Ya estan ordenados");
+		return (NULL);
 	}
-	return (NULL);
+	return (numbers);
 }

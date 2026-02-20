@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/18 19:08:57 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/20 17:29:01 by ismonter         ###   ########.fr       */
+/*   Created: 2026/01/22 19:35:15 by ismonter          #+#    #+#             */
+/*   Updated: 2026/02/20 18:50:31 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_strdup(const char *s)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	char		*copy;
-	size_t		i;
+	t_list	*lst_aux;
 
-	i = 0;
-	while (s[i] != '\0')
+	if (lst == NULL || new == NULL)
+		return ;
+	lst_aux = lst[0];
+	if (lst_aux != NULL)
 	{
-		i++;
+		while (lst_aux->next != NULL)
+		{
+			lst_aux = lst_aux->next;
+		}
+		lst_aux->next = new;
 	}
-	copy = malloc(sizeof(char) * (i + 1));
-	if (copy == NULL)
-		return (NULL);
-	i = 0;
-	while (s[i] != '\0')
-	{
-		copy[i] = s[i];
-		i++;
-	}
-	copy[i] = '\0';
-	return (copy);
+	else
+		lst[0] = new;
 }

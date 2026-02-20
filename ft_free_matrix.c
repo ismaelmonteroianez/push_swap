@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_matrix.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 17:39:17 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/19 19:04:07 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/02/20 17:28:51 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

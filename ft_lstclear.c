@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/18 19:08:57 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/20 17:29:01 by ismonter         ###   ########.fr       */
+/*   Created: 2026/01/26 17:50:07 by ismonter          #+#    #+#             */
+/*   Updated: 2026/02/20 19:09:42 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_strdup(const char *s)
+void	ft_lstclear(t_list **lst)
 {
-	char		*copy;
-	size_t		i;
+	t_list	*lst_aux;
 
-	i = 0;
-	while (s[i] != '\0')
+	while (lst[0] != NULL)
 	{
-		i++;
+		lst_aux = lst[0]->next;
+		free(lst[0]);
+		lst[0] = lst_aux;
 	}
-	copy = malloc(sizeof(char) * (i + 1));
-	if (copy == NULL)
-		return (NULL);
-	i = 0;
-	while (s[i] != '\0')
-	{
-		copy[i] = s[i];
-		i++;
-	}
-	copy[i] = '\0';
-	return (copy);
 }

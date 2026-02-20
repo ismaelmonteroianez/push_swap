@@ -13,5 +13,5 @@ t_list b - Va a estar vacia al principio
 8. Dependiendo del rango, tendremos tres algoritmos
 Uno simple.
 Uno medio.
-Y uno complejo.
+Y uno complejo
 

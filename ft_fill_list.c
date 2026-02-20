@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_fill_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/18 19:08:57 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/20 17:29:01 by ismonter         ###   ########.fr       */
+/*   Created: 2026/02/20 17:00:12 by ismonter          #+#    #+#             */
+/*   Updated: 2026/02/20 19:14:40 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_strdup(const char *s)
+t_list	*ft_fill_list(int *numbers, int numbers_size)
 {
-	char		*copy;
-	size_t		i;
+	t_list	*a;
+	t_list	*tmp;
+	int		i;
 
 	i = 0;
-	while (s[i] != '\0')
+	a = NULL;
+	while(i < numbers_size)
 	{
+		tmp = ft_lstnew(numbers[i]);
+		if (tmp == NULL)
+		{
+			ft_lstclear(&a);
+			free(numbers);
+			return (NULL);
+		}
+		ft_lstadd_back(&a, tmp);
 		i++;
 	}
-	copy = malloc(sizeof(char) * (i + 1));
-	if (copy == NULL)
-		return (NULL);
-	i = 0;
-	while (s[i] != '\0')
-	{
-		copy[i] = s[i];
-		i++;
-	}
-	copy[i] = '\0';
-	return (copy);
+	free(numbers);
+	return (a);
 }
