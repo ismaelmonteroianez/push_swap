@@ -15,3 +15,38 @@ Uno simple.
 Uno medio.
 Y uno complejo
 
+Algoritmos para casos pequeños (≤ 5 números)
+
+👉 Objetivo: Resolver perfectamente los casos pequeños con el mínimo de movimientos.
+
+✅ 1. Caso 2 números
+
+ Si están desordenados → sa
+
+✅ 2. Caso 3 números
+
+ Hardcodear las 6 combinaciones posibles.
+
+ Resolver en máximo 2–3 movimientos.
+
+✅ 3. Caso 4 números
+
+Estrategia clásica:
+
+ Encontrar el mínimo.
+
+ Hacer rotaciones hasta ponerlo arriba.
+
+ pb
+
+ Resolver los 3 restantes.
+
+ pa
+
+✅ 4. Caso 5 números
+
+ Mandar los 2 más pequeños a B.
+
+ Resolver los 3 restantes.
+
+ Reinsertar ordenadamente.

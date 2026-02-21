@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parser.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:41:47 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/20 19:33:46 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/21 11:17:02 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,6 @@ int *ft_parser(int argc, char **argv, int *numbers_size)
 	if (ft_check_order(numbers, *numbers_size) == 1)
 	{
 		free(numbers);
-		printf("Ya estan ordenados");
 		return (NULL);
 	}
 	return (numbers);

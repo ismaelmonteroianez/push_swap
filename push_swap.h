@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:45 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/20 19:25:28 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/21 10:53:17 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,17 @@ int     free_error_matrix(char **matrix);
 long	ft_atol(char *str);
 int     matrix_len(char **matrix);
 int	    ft_check_int(long n);
-t_list	*ft_lstnew(int number);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-t_list	*ft_fill_list(int *numbers, int numbers_size);
-void	ft_lstclear(t_list **lst);
 int	    ft_check_order(int *numbers, int numbers_size);
+t_list	*ft_lstnew(int number);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstclear(t_list **lst);
+t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lst_second_last(t_list *lst);
+t_list	*ft_fill_list(int *numbers, int numbers_size);
+void	ft_swap(t_list **list);
+void	ft_push(t_list **a, t_list **b);
+void	ft_rotate(t_list **list);
+void	ft_reverse_rotate(t_list **list);
 
 #endif
