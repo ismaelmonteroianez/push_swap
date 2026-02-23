@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:45 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/21 10:53:17 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/02/23 19:39:35 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ void	ft_swap(t_list **list);
 void	ft_push(t_list **a, t_list **b);
 void	ft_rotate(t_list **list);
 void	ft_reverse_rotate(t_list **list);
+int     count_total_numbers(int argc, char **argv);
+char    **fill_matrix(int argc, char **argv, char **matrix);
 
 #endif

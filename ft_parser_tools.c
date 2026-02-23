@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tools.c                                         :+:      :+:    :+:   */
+/*   ft_parser_tools.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 19:26:52 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/02/20 19:33:25 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/23 19:39:23 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,30 @@ int	ft_check_order(int *numbers, int numbers_size)
 		i++;
 	}
 	return (1);
+}
+
+int	count_total_numbers(int argc, char **argv)
+{
+	int		i;
+	int		j;
+	int		count;
+	char	**split;
+
+	count = 0;
+	i = 1;
+	while (i < argc)
+	{
+		split = ft_split(argv[i], ' ');
+		if (!split)
+			return (-1);
+		j = 0;
+		while (split[j])
+		{
+			count++;
+			j++;
+		}
+		free_full_matrix(split);
+		i++;
+	}
+	return (count);
 }

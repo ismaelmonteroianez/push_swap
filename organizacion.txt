@@ -1,52 +1,36 @@
-1. Separar el string de numeros en un array de stringscon split
-2. Comprobamos que lo que nos han dado son numeros con isdigit
-3. Transformar los strings de numeros, en digitos con atol
-4. Comprobar que los numeros esten en rango de int
-5. Comprobar que no haya numeros repetidos
+✅1. Separar el string de numeros en un array de stringscon split
+✅2. Comprobamos que lo que nos han dado son numeros con isdigit
+✅3. Transformar los strings de numeros, en digitos con atol
+✅4. Comprobar que los numeros esten en rango de int
+✅5. Comprobar que no haya numeros repetidos
 
-6. Pasar los numeros a la lista a
+✅6. Pasar los numeros a la lista a
 
-t_list a - Todos los nodos de numeros
-t_list b - Va a estar vacia al principio
+✅ t_list a - Todos los nodos de numeros
+✅ t_list b - Va a estar vacia al principio
 
-7. Comprobar el rango de desordenacion de la lista
-8. Dependiendo del rango, tendremos tres algoritmos
-Uno simple.
-Uno medio.
-Y uno complejo
+7. Crear todos los movimientos
+    7.1 Push ✅ pa pb ❌
+    7.2 Swap ✅ sa sb ❌
+    7.3 Rotate ✅ ra rb rr❌
+    7.4 Reverse Rotate ✅ rra rrb rrr❌
+8. 
 
-Algoritmos para casos pequeños (≤ 5 números)
+❌9. Comprobar el rango de desordenacion de la lista
+10. Dependiendo del rango, tendremos tres algoritmos
+❌10.1 Uno simple.
+❌10.2 Uno medio.
+❌10.3 Y uno complejo
 
-👉 Objetivo: Resolver perfectamente los casos pequeños con el mínimo de movimientos.
+   ❌ 11. Algoritmo adaptativo
 
-✅ 1. Caso 2 números
+❌TAREA QUE NOS FALTA: FLAGS
 
- Si están desordenados → sa
+--simple
+--medium
+--complex
+--adaptive
 
-✅ 2. Caso 3 números
+--bench
 
- Hardcodear las 6 combinaciones posibles.
-
- Resolver en máximo 2–3 movimientos.
-
-✅ 3. Caso 4 números
-
-Estrategia clásica:
-
- Encontrar el mínimo.
-
- Hacer rotaciones hasta ponerlo arriba.
-
- pb
-
- Resolver los 3 restantes.
-
- pa
-
-✅ 4. Caso 5 números
-
- Mandar los 2 más pequeños a B.
-
- Resolver los 3 restantes.
-
- Reinsertar ordenadamente.
+./a.out --simple --bench "43 565 32 57"

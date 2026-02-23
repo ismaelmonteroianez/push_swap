@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parser.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:41:47 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/21 11:17:02 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/02/23 20:10:21 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,20 @@
 
 char	**ft_matrix_gen(int argc, char **argv)
 {
-	int		i;
 	char	**matrix;
+	int		total;
 
-    i = 0;
-    if (argc == 1)
+    if (argc < 2)
 		return (NULL);
-	if (argc == 2)
-		matrix = ft_split(argv[1], ' ');
-	if (argc > 2)
-    {
-        matrix = ft_calloc(argc, sizeof(char *));
-		if (matrix == NULL)
-			return (NULL);
-		while(i < argc - 1)
-		{
-			matrix[i] = ft_strdup(argv[i + 1]);
-			if (matrix[i] == NULL)
-					return (free_partial_matrix(matrix, i), NULL);
-			i++;
-		}
-		matrix[i] = NULL;
-	}
+	total = count_total_numbers(argc, argv);
+	if (total <= 0)
+		return (NULL);
+	matrix = ft_calloc(total + 1, sizeof(char *));
+	if (!matrix)
+		return (NULL);
+	matrix = fill_matrix(argc, argv, matrix);
+	if (!matrix)
+		return (NULL);
 	return (matrix);
 }
 
@@ -121,7 +113,7 @@ int *ft_parser(int argc, char **argv, int *numbers_size)
     char	**matrix;
 	int		check;
 	int		*numbers;
-	
+
 	matrix = ft_matrix_gen(argc, argv);
     if (matrix == NULL)
 		return (NULL);

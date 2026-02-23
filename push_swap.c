@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:03 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/21 11:23:19 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/02/23 20:06:57 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -31,7 +30,6 @@ int	main(int argc, char **argv)
 
 	//Funcion para imprimir, solo descomentar para probar
 	/*
-	ft_rotate(&a);
 	
 	printf("Lista a:\n");
 	while(a)
@@ -46,5 +44,5 @@ int	main(int argc, char **argv)
 		b = b->next;
 	}
 	return (0);
-	*/
+*/
 }
