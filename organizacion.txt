@@ -34,3 +34,5 @@
 --bench
 
 ./a.out --simple --bench "43 565 32 57"
+
+✅ BUG DE "" COMO ARGUMENTO

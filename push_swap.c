@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:03 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/23 20:06:57 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/25 20:37:07 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	main(int argc, char **argv)
 		return (0);
 
 	//Funcion para imprimir, solo descomentar para probar
-	/*
 	
 	printf("Lista a:\n");
 	while(a)
@@ -44,5 +43,4 @@ int	main(int argc, char **argv)
 		b = b->next;
 	}
 	return (0);
-*/
 }
