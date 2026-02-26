@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:03 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/25 20:37:07 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/26 18:39:20 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	numbers_size = 0;
 	numbers = ft_parser(argc, argv, &numbers_size);
 	if (numbers == NULL)
-		return(0);
+		return (0);
 	a = ft_fill_list(numbers, numbers_size);
 	if (a == NULL)
 		return (0);

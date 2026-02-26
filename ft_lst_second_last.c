@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lst_second_last.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 10:37:22 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/02/21 10:46:43 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/02/26 18:09:52 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 t_list	*ft_lst_second_last(t_list *lst)
 {
-	t_list *second_last;
-	
+	t_list	*second_last;
+
 	if (!lst || !lst->next)
-        return (NULL);
+		return (NULL);
 	while (lst->next)
 	{
 		second_last = lst;

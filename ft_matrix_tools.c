@@ -6,61 +6,63 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 17:39:17 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/23 19:37:39 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/26 18:20:31 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 void	free_partial_matrix(char **matrix, int pos)
-{   
-    if (!matrix)
-        return;
+{
+	if (!matrix)
+		return ;
 	while (pos > 0)
 		free(matrix[--pos]);
 	free(matrix);
 }
 
-void   free_full_matrix(char **matrix)
+void	free_full_matrix(char **matrix)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (!matrix)
-        return;
-    while(matrix[i] != NULL)
-        i++;
-    while (i >= 0)
-    {
+	i = 0;
+	if (!matrix)
+		return ;
+	while (matrix[i] != NULL)
+		i++;
+	while (i >= 0)
+	{
 		free(matrix[i]);
-        i--;
-    }
+		i--;
+	}
 	free(matrix);
 }
-int free_error_matrix(char **matrix)
+
+int	free_error_matrix(char **matrix)
 {
-    free_full_matrix(matrix);
+	free_full_matrix(matrix);
 	write(2, "Error\n", 6);
 	return (0);
 }
 
-int matrix_len(char **matrix)
+int	matrix_len(char **matrix)
 {
-    int i;
-    
-    i = 0;
-    while(matrix[i] != NULL)
-        i++;
-    return (i);
-}
-char    **fill_matrix(int argc, char **argv, char **matrix)
-{
-    int i;
-    int j;
-    int k;
-    char **split;
+	int	i;
 
-    i = 1;
+	i = 0;
+	while (matrix[i] != NULL)
+		i++;
+	return (i);
+}
+
+char	**fill_matrix(int argc, char **argv, char **matrix)
+{
+	int		i;
+	int		j;
+	int		k;
+	char	**split;
+
+	i = 1;
 	k = 0;
 	while (i < argc)
 	{
@@ -69,12 +71,12 @@ char    **fill_matrix(int argc, char **argv, char **matrix)
 			return (free_full_matrix(matrix), NULL);
 		j = 0;
 		while (split[j])
-        {
+		{
 			matrix[k++] = ft_strdup(split[j++]);
-            if (matrix[k - 1] == NULL)
-               return (free_full_matrix(split), 
-                    free_full_matrix(matrix), NULL);
-        }
+			if (matrix[k - 1] == NULL)
+				return (free_full_matrix(split),
+					free_full_matrix(matrix), NULL);
+		}
 		free_full_matrix(split);
 		i++;
 	}

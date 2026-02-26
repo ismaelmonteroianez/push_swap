@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 17:00:12 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/20 19:14:40 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/26 18:08:22 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list	*ft_fill_list(int *numbers, int numbers_size)
 
 	i = 0;
 	a = NULL;
-	while(i < numbers_size)
+	while (i < numbers_size)
 	{
 		tmp = ft_lstnew(numbers[i]);
 		if (tmp == NULL)

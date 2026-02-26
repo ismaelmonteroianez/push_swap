@@ -1,40 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_move.c                                          :+:      :+:    :+:   */
+/*   ft_reverse_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/21 09:40:26 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/02/26 18:26:20 by ismonter         ###   ########.fr       */
+/*   Created: 2026/02/26 17:54:48 by ismonter          #+#    #+#             */
+/*   Updated: 2026/02/26 18:48:04 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_swap(t_list **list)
-{
-	t_list	*tmp;
-
-	if (list == NULL || *list == NULL || (*list)->next == NULL)
-		return ;
-	tmp = list[0]->next;
-	list[0]->next = tmp->next;
-	tmp->next = list[0];
-	list[0] = tmp;
-}
-
-void	ft_rotate(t_list **list)
-{
-	t_list	*tmp;
-
-	if (list == NULL || *list == NULL || (*list)->next == NULL)
-		return ;
-	tmp = list[0]->next;
-	ft_lstadd_back(list, list[0]);
-	list[0]->next = NULL;
-	list[0] = tmp;
-}
 
 void	ft_reverse_rotate(t_list **list)
 {
@@ -47,4 +23,23 @@ void	ft_reverse_rotate(t_list **list)
 	second_last = ft_lst_second_last(list[0]);
 	second_last->next = NULL;
 	ft_lstadd_front(list, last);
+}
+
+void	rra(t_list **a)
+{
+	ft_reverse_rotate(a);
+		write(1, "rra\n", 4);
+}
+
+void	rrb(t_list **b)
+{	
+	ft_reverse_rotate(b);
+	write(1, "rra\n", 4);
+}
+
+void	rrr(t_list **a, t_list **b)
+{	
+	ft_reverse_rotate(a);
+	ft_reverse_rotate(b);
+	write(1, "rrr\n", 4);
 }

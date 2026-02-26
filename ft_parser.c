@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:41:47 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/23 20:10:21 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/26 18:34:09 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	**ft_matrix_gen(int argc, char **argv)
 	char	**matrix;
 	int		total;
 
-    if (argc < 2)
+	if (argc < 2)
 		return (NULL);
 	total = count_total_numbers(argc, argv);
 	if (total <= 0)
@@ -31,22 +31,22 @@ char	**ft_matrix_gen(int argc, char **argv)
 	return (matrix);
 }
 
-int ft_check_nbr(char **matrix)
+int	ft_check_nbr(char **matrix)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while(matrix[i] != NULL)
+	while (matrix[i] != NULL)
 	{
 		j = 0;
 		if (matrix[i][j] == '-')
 		{
 			j++;
-			if(matrix[i][j] == '\0')
+			if (matrix[i][j] == '\0')
 				return (free_error_matrix(matrix));
 		}
-		while(matrix[i][j] != '\0')
+		while (matrix[i][j] != '\0')
 		{
 			if (ft_isdigit(matrix[i][j]) == 0)
 				return (free_error_matrix(matrix));
@@ -56,19 +56,20 @@ int ft_check_nbr(char **matrix)
 	}
 	return (1);
 }
+
 int	*ft_array_number_gen(char **matrix)
 {
 	long	result_atol;
 	int		*numbers;
 	int		i;
-	
+
 	i = 0;
 	numbers = ft_calloc(matrix_len(matrix), sizeof(int));
 	if (numbers == NULL)
-		{
-			free_full_matrix(matrix);
-			return (NULL);
-		}
+	{
+		free_full_matrix(matrix);
+		return (NULL);
+	}
 	while (matrix[i] != NULL)
 	{
 		result_atol = ft_atol(matrix[i]);
@@ -82,18 +83,19 @@ int	*ft_array_number_gen(char **matrix)
 		i++;
 	}
 	free_full_matrix(matrix);
-	return(numbers);
+	return (numbers);
 }
-int	check_repeated_numbers(int	*numbers, int	numbers_size)
+
+int	check_repeated_numbers(int *numbers, int numbers_size)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
-	while(i < numbers_size - 1)
+	while (i < numbers_size - 1)
 	{
 		j = i + 1;
-		while(j < numbers_size)
+		while (j < numbers_size)
 		{
 			if (numbers[i] == numbers[j])
 			{
@@ -104,21 +106,21 @@ int	check_repeated_numbers(int	*numbers, int	numbers_size)
 			j++;
 		}
 		i++;
-	}	
+	}
 	return (1);
 }
 
-int *ft_parser(int argc, char **argv, int *numbers_size)
+int	*ft_parser(int argc, char **argv, int *numbers_size)
 {
-    char	**matrix;
+	char	**matrix;
 	int		check;
 	int		*numbers;
 
 	matrix = ft_matrix_gen(argc, argv);
-    if (matrix == NULL)
+	if (matrix == NULL)
 		return (NULL);
 	check = ft_check_nbr(matrix);
-	if(check == 0)
+	if (check == 0)
 		return (NULL);
 	*numbers_size = matrix_len(matrix);
 	numbers = ft_array_number_gen(matrix);
