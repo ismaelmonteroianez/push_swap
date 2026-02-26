@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:03 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/26 18:39:20 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/26 21:08:59 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 	t_list	*b;
 	int		*numbers;
 	int		numbers_size;
+	char	*flag;
 
 	b = NULL;
 	numbers_size = 0;
@@ -29,7 +30,7 @@ int	main(int argc, char **argv)
 		return (0);
 
 	//Funcion para imprimir, solo descomentar para probar
-	
+
 	printf("Lista a:\n");
 	while(a)
 	{

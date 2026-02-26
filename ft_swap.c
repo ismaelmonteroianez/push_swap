@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 17:27:42 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/26 19:08:21 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/26 19:39:34 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,8 @@ void	ss(t_list **a, t_list **b)
 {
 	if (a == NULL || *a == NULL || (*a)->next == NULL
 		|| b == NULL || *b == NULL || (*b)->next == NULL)
-	{
-		ft_swap(a);
-		ft_swap(b);
-		write(1, "ss\n", 3);
-	}
+		return ;
+	ft_swap(a);
+	ft_swap(b);
+	write(1, "ss\n", 3);
 }

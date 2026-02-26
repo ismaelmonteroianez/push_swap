@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/25 20:42:53 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/26 19:52:46 by ismonter         ###   ########.fr       */
+/*   Created: 2026/01/15 15:26:15 by ismonter          #+#    #+#             */
+/*   Updated: 2026/02/26 20:34:37 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <stdio.h>
 
-int	ft_push(t_list **a, t_list **b)
+int	ft_strcmp(char *s1, char *s2)
 {
-	t_list	*tmp;
+	size_t	i;
 
-	if (a == NULL || *a == NULL)
-		return (0);
-	tmp = a[0]->next;
-	ft_lstadd_front(b, a[0]);
-	a[0] = tmp;
-	return (1);
-}
-
-void	pa(t_list **a, t_list **b)
-{
-	if (ft_push(b, a) != 0)
-		write(1, "pa\n", 3);
-}
-
-void	pb(t_list **a, t_list **b)
-{
-	if (ft_push(a, b) != 0)
-		write(1, "pb\n", 3);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] && s2[i])
+	{
+		i++;
+	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

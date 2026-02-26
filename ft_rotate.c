@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 17:38:58 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/26 18:47:30 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/26 19:40:39 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ void	rb(t_list **b)
 
 void	rr(t_list **b, t_list **a)
 {
-	if (ft_rotate(a) != 0 && ft_rotate(b) != 0) // si a rota pero b no puede no debe hacer ninguna, error
-		write(1, "rr\n", 3);
+	if (a == NULL || *a == NULL || (*a)->next == NULL
+		|| b == NULL || *b == NULL || (*b)->next == NULL)
+		return ;
+	ft_rotate(a);
+	ft_rotate(b);
+	write(1, "rr\n", 3);
 }

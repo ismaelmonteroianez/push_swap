@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 19:26:52 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/02/26 18:38:51 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/26 21:21:17 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,22 @@ int	count_total_numbers(int argc, char **argv)
 		i++;
 	}
 	return (count);
+}
+
+int	ft_check_flags(char *s)
+{
+	int result;
+	
+	result = 0;
+	if (ft_strcmp(s, "--simple") == 0)
+		result = 1;
+	else if (ft_strcmp(s, "--medium") == 0)
+		result = 2;
+	else if (ft_strcmp(s, "--complex") == 0)
+		result = 3;
+	else if (ft_strcmp(s, "--adaptive") == 0)
+		result = 4;
+	else if (ft_strcmp(s, "--bench") == 0)
+		result = 5;
+	return (result);
 }
