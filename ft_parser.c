@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:41:47 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/27 17:39:02 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/27 17:51:14 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ char	**ft_matrix_gen(int argc, char **argv)
 	i = 0;
 	if (argc < 2)
 		return (NULL);
-	ft_check_flags(argv[1]);
 	total = count_total_numbers(argc, argv);
 	if (total <= 0)
 		return (NULL);

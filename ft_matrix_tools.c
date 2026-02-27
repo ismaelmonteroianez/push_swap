@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 17:39:17 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/27 17:38:56 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/27 17:53:23 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	**fill_matrix(int argc, char **argv, char **matrix, int i)
 	k = 0;
 	while (++i < argc)
 	{
-		if (ft_check_flags(argv[i]) == 0)
+		if (ft_isflag(argv[i]) == 0)
 		{
 			split = ft_split(argv[i], ' ');
 			if (!split)

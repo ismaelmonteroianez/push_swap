@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 19:26:52 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/02/27 17:21:03 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/27 19:16:11 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	count_total_numbers(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		if (ft_check_flags(argv[i]) == 0)
+		if (ft_isflag(argv[i]) == 0)
 		{
 			split = ft_split(argv[i], ' ');
 			if (!split)
@@ -64,7 +64,7 @@ int	count_total_numbers(int argc, char **argv)
 	return (count);
 }
 
-int	ft_check_flags(char *s)
+int	ft_isflag(char *s)
 {
 	int result;
 	

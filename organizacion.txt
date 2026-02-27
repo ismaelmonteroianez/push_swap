@@ -35,4 +35,9 @@
 
 ./a.out --simple --bench "43 565 32 57"
 
+TAREA QUE NOS FALTA:
+
+❌checkear valgrind con FLAGS
+❌checkear que los movimientos siguen realizandose
+
 ✅ BUG DE "" COMO ARGUMENTO
