@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:45 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/26 21:08:36 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/27 17:35:31 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strdup(const char *s);
 int		ft_strcmp(char *s1, char *s2);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 int		count_total_numbers(int argc, char **argv);
-char	**fill_matrix(int argc, char **argv, char **matrix);
+char	**fill_matrix(int argc, char **argv, char **matrix, int i);
 void	free_partial_matrix(char **matrix, int pos);
 void	free_full_matrix(char **matrix);
 int		free_error_matrix(char **matrix);
@@ -40,6 +40,7 @@ long	ft_atol(char *str);
 int		matrix_len(char **matrix);
 int		ft_check_int(long n);
 int		ft_check_order(int *numbers, int numbers_size);
+int		ft_check_flags(char *s);
 t_list	*ft_lstnew(int number);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);

@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 19:26:52 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/02/26 21:21:17 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/27 17:21:03 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,18 @@ int	count_total_numbers(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		split = ft_split(argv[i], ' ');
-		if (!split)
-			return (-1);
-		if (split[0] == NULL)
-			return (write(1, "Error\n", 6), -1);
-		j = 0;
-		while (split[j])
+		if (ft_check_flags(argv[i]) == 0)
 		{
-			count++;
-			j++;
+			split = ft_split(argv[i], ' ');
+			if (!split)
+				return (-1);
+			if (split[0] == NULL)
+				return (free_error_matrix(split), -1);
+			j = 0;
+			while (split[j++])
+				count++;
+			free_full_matrix(split);
 		}
-		free_full_matrix(split);
 		i++;
 	}
 	return (count);

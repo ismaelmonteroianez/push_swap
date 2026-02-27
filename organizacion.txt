@@ -10,17 +10,17 @@
 ✅ t_list b - Va a estar vacia al principio
 
 7. Crear todos los movimientos
-    7.1 Push ✅ pa pb ❌
-    7.2 Swap ✅ sa sb ❌
-    7.3 Rotate ✅ ra rb rr❌
-    7.4 Reverse Rotate ✅ rra rrb rrr❌
+    7.1 Push ✅ pa pb ✅
+    7.2 Swap ✅ sa sb ✅
+    7.3 Rotate ✅ ra rb rr✅
+    7.4 Reverse Rotate ✅ rra rrb rrr✅
 8. 
 
-❌9. Comprobar el rango de desordenacion de la lista
-10. Dependiendo del rango, tendremos tres algoritmos
-❌10.1 Uno simple.
-❌10.2 Uno medio.
-❌10.3 Y uno complejo
+❌9. Comprobar el rango de desordenacion de la list
+❌10. Dependiendo del rango, tendremos tres algoritmos
+      ❌10.1 Uno simple.
+      ❌10.2 Uno medio.
+      ❌10.3 Y uno complejo
 
    ❌ 11. Algoritmo adaptativo
 

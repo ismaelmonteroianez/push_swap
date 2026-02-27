@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:41:47 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/26 21:21:32 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/27 17:39:02 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ char	**ft_matrix_gen(int argc, char **argv)
 {
 	char	**matrix;
 	int		total;
+	int		i;
 
+	i = 0;
 	if (argc < 2)
 		return (NULL);
 	ft_check_flags(argv[1]);
@@ -26,7 +28,7 @@ char	**ft_matrix_gen(int argc, char **argv)
 	matrix = ft_calloc(total + 1, sizeof(char *));
 	if (!matrix)
 		return (NULL);
-	matrix = fill_matrix(argc, argv, matrix);
+	matrix = fill_matrix(argc, argv, matrix, i);
 	if (!matrix)
 		return (NULL);
 	return (matrix);
@@ -116,7 +118,7 @@ int	*ft_parser(int argc, char **argv, int *numbers_size)
 	char	**matrix;
 	int		check;
 	int		*numbers;
-
+	
 	matrix = ft_matrix_gen(argc, argv);
 	if (matrix == NULL)
 		return (NULL);

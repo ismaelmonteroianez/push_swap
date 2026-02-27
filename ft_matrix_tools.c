@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 17:39:17 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/26 18:20:31 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/02/27 17:38:56 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,30 +55,30 @@ int	matrix_len(char **matrix)
 	return (i);
 }
 
-char	**fill_matrix(int argc, char **argv, char **matrix)
+char	**fill_matrix(int argc, char **argv, char **matrix, int i)
 {
-	int		i;
 	int		j;
 	int		k;
 	char	**split;
 
-	i = 1;
 	k = 0;
-	while (i < argc)
+	while (++i < argc)
 	{
-		split = ft_split(argv[i], ' ');
-		if (!split)
-			return (free_full_matrix(matrix), NULL);
-		j = 0;
-		while (split[j])
+		if (ft_check_flags(argv[i]) == 0)
 		{
-			matrix[k++] = ft_strdup(split[j++]);
-			if (matrix[k - 1] == NULL)
-				return (free_full_matrix(split),
-					free_full_matrix(matrix), NULL);
+			split = ft_split(argv[i], ' ');
+			if (!split)
+				return (free_full_matrix(matrix), NULL);
+			j = 0;
+			while (split[j])
+			{
+				matrix[k++] = ft_strdup(split[j++]);
+				if (matrix[k - 1] == NULL)
+					return (free_full_matrix(split),
+						free_full_matrix(matrix), NULL);
+			}
+			free_full_matrix(split);
 		}
-		free_full_matrix(split);
-		i++;
 	}
 	matrix[k] = NULL;
 	return (matrix);
