@@ -1,0 +1,63 @@
+1️⃣ Algoritmo simple (O(n²)) → Inserción o selección adaptada a pilas
+
+Recomendación real: Orden por inserción adaptado a pila.
+
+Muy fácil de programar usando pa y pb.
+
+Básicamente, sacas elementos de a a b en orden y los insertas en la posición correcta.
+
+Perfecto para listas pequeñas (≤100).
+
+Idea:
+
+Mientras a no esté vacía:
+
+	Encuentra el valor máximo en a.
+
+	Muévelo al top con ra o rra.
+
+	Haz pb para pasarlo a b.
+
+Luego vuelves a pasar b a a en orden.
+
+2️⃣ Algoritmo intermedio (O(n√n)) → Orden por chunks
+
+Recomendación real: Ordenar usando √n chunks de la pila a.
+
+Muy usado en push_swap para listas medianas (100–500 elementos).
+
+Divides el rango de números en √n partes (chunks).
+
+Mueves cada chunk a b en orden parcial, luego reconstruyes a.
+
+Ejemplo práctico:
+
+Para 100 números → 5–10 chunks.
+
+Mueves los elementos de cada chunk a b con pb y ra/rra estratégicos.
+
+Luego vuelves a pasar de b a a en orden descendente usando pa.
+
+3️⃣ Algoritmo complejo (O(n log n)) → Radix sort adaptado a pilas
+
+Recomendación real: Radix sort binario.
+
+Por qué:
+
+Perfecto para listas grandes (>500 elementos).
+
+Solo requiere operaciones de pila.
+
+Clasifica los números bit a bit usando pb y pa.
+
+Funciona bien con O(n log n) para push_swap, porque cada bit significa recorrer la pila entero log₂(max) veces.
+
+Idea básica:
+
+Para cada bit (desde LSB hasta MSB):
+
+Si el bit = 0 → pb a pila b.
+
+Si el bit = 1 → ra para dejar en a.
+
+Al final de cada bit, vuelves todos los de b a a (pa).

@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:45 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/27 19:58:30 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/01 18:22:38 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,21 @@ t_list	*ft_lstnew(int number);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst);
+int		ft_lstsize(t_list *lst);
+int		ft_lstiter(t_list *a, int pos);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lst_second_last(t_list *lst);
 t_list	*ft_fill_list(int *numbers, int numbers_size);
-void	ft_swap(t_list **list);
-void	ft_push(t_list **a, t_list **b);
-void	ft_rotate(t_list **list);
-void	ft_reverse_rotate(t_list **list);
+int		ft_swap(t_list **list);
+int		ft_push(t_list **a, t_list **b);
+int		ft_rotate(t_list **list);
+int		ft_reverse_rotate(t_list **list);
+void	ft_sort(t_list **a, t_list **b, int	**flags);
+void	ft_simple(t_list **a, t_list **b);
+void	pa(t_list **a, t_list **b);
+void	pb(t_list **a, t_list **b);
+void	ra(t_list **a);
+void	rb(t_list **b);
+void	rrr(t_list **a, t_list **b);
 
 #endif

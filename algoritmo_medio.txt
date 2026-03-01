@@ -1,0 +1,81 @@
+1️⃣ Idea general del algoritmo de chunks
+
+Problema: Tenemos una pila a con muchos números desordenados y queremos ordenarla usando solo operaciones de pila (pa, pb, ra, rb, etc.).
+
+Solución con chunks:
+
+Dividimos los números en "chunks" o bloques" según su valor.
+
+Por ejemplo, si tenemos 100 elementos y queremos 5 chunks:
+
+Chunk 1 → los 20 números más pequeños
+
+Chunk 2 → los siguientes 20 números
+
+…
+
+Chunk 5 → los 20 números más grandes
+
+Vamos moviendo a la pila b solo los elementos de cada chunk, uno chunk a la vez.
+
+Una vez que un chunk está completamente en b, lo volvemos a pasar a a en orden descendente para reconstruir la pila ordenada.
+
+Ventaja:
+
+La complejidad se reduce de O(n²) a O(n√n) si elegimos √n chunks.
+
+Menos movimientos que mover elementos uno por uno usando el método simple.
+
+2️⃣ Paso a paso del algoritmo
+
+Paso 1: Preparar los chunks
+
+Ordenamos los números de la pila original en un arreglo temporal para conocer los valores de cada chunk (solo para calcular los rangos).
+
+Decidimos cuántos chunks usar:
+
+num_chunks = sqrt(n) es un buen valor aproximado.
+
+Calculamos el rango de valores de cada chunk:
+
+Por ejemplo, para 100 números y 5 chunks:
+
+Chunk 1 → valores 1–20
+
+Chunk 2 → valores 21–40
+
+Chunk 3 → valores 41–60
+
+Chunk 4 → valores 61–80
+
+Chunk 5 → valores 81–100
+
+Paso 2: Mover elementos chunk por chunk
+
+Para cada chunk:
+
+Recorremos la pila a buscando elementos que estén dentro del rango del chunk actual.
+
+Cuando encontramos uno, lo movemos a b con pb.
+
+Para minimizar movimientos, usamos ra o rra para acercar el número a la cabeza de la pila.
+
+Repetimos hasta que todos los números del chunk estén en b.
+
+Nota: A veces también hacemos un pequeño truco: si el número es menor que la mitad del chunk, lo movemos al final de b con rb para preparar el orden correcto, esto reduce movimientos cuando reconstruimos a.
+
+Paso 3: Reconstruir la pila a
+
+Una vez que todos los elementos están en b:
+
+Buscamos el número más grande en b.
+
+Movemos ese número a la cabeza de b usando rb o rrb.
+
+Hacemos pa para pasarlo a a.
+
+Repetimos hasta que b esté vacío.
+
+Resultado:
+
+Ahora a está completamente ordenada.
