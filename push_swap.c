@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:03 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/01 15:42:29 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/02 19:53:55 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	ft_sort(&a, &b, &flags);
-	ft_imprimir(a, b);
+	//ft_imprimir(a, b);
 	return (0);
 }

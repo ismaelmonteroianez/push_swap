@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 12:51:03 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/01 18:15:35 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/02 19:54:11 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ void	ft_sort(t_list **a, t_list **b, int	**flags)
 {
 	float	disorder_index;
 	disorder_index = ft_disorder_index(a);
-	ft_simple(a, b);
+	ft_medium(a, b);
 	return ;
 }

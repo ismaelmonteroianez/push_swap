@@ -3,25 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   ft_quicksort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 19:28:30 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/02 19:34:28 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/02 20:13:19 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    ft_quicksort(int *numbers, int size)
+void    swap(int *a, int *b)
 {
-    int		first;
-    int		last;
-    int		p;
+    int tmp;
     
-    first = 0;
-    last = size - 1;
+    tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+int partition(int *number, int first, int last)
+{
+    int pivot;
+    int i;
+    int j;
+    
+    pivot = number[last];
+    i = first - 1;
+    j = first;
+    while(j < last)
+    {
+        if (number[j] < pivot)
+        {
+            i++;
+            swap(&number[i], &number[j]);
+        }
+        j++;
+    }
+    swap(&number[i + 1], &number[last]);
+    return (i + 1);
+}
+
+
+void    ft_quicksort(int *numbers,int first, int last)
+{
+    int		pivot;
+    
     if (first < last)
     {
-        
+        pivot = partition(numbers, first, last);
+        ft_quicksort(numbers, first, pivot - 1);
+        ft_quicksort(numbers, pivot + 1, last);
     }
-    
-
 }
