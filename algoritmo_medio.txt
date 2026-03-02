@@ -16,7 +16,7 @@ Chunk 2 → los siguientes 20 números
 
 Chunk 5 → los 20 números más grandes
 
-Vamos moviendo a la pila b solo los elementos de cada chunk, uno chunk a la vez.
+Vamos moviendo a la pila b solo los elementos de cada chunk, un chunk a la vez.
 
 Una vez que un chunk está completamente en b, lo volvemos a pasar a a en orden descendente para reconstruir la pila ordenada.
 

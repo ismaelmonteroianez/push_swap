@@ -32,3 +32,5 @@
 --adaptive
 
 --bench
+
+❌❌❌PENSAR LUEGO: SI MEDIUM FALLA HAY QUE LIBERAR t_list a y FLAGS
