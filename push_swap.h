@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:45 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/02 20:08:54 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/03/03 20:11:57 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct s_list
 {
 	int				number;
+	int				index;
 	struct s_list	*next;
 }	t_list;
 
@@ -59,6 +60,8 @@ void	ft_sort(t_list **a, t_list **b, int	**flags);
 void	ft_simple(t_list **a, t_list **b);
 void	*ft_medium(t_list **a, t_list **b);
 void    ft_quicksort(int *numbers,int first, int last);
+int		ft_sqrt(int size);
+void    ft_medium_sort_aux(t_list **a, t_list **b, int aux, int size);
 void	pa(t_list **a, t_list **b);
 void	pb(t_list **a, t_list **b);
 void	ra(t_list **a);

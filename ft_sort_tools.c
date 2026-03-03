@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_simple.c                                        :+:      :+:    :+:   */
+/*   ft_sort_tools.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/01 17:58:27 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/03 19:35:21 by ismonter         ###   ########.fr       */
+/*   Created: 2026/03/03 19:57:19 by ismonter          #+#    #+#             */
+/*   Updated: 2026/03/03 20:16:11 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_simple(t_list **a, t_list **b)
+void    ft_medium_sort_aux(t_list **a, t_list **b, int aux, int size)
 {
-	t_list	*tmp;
-	t_list	*smaller;
+    int i;
 
-	while(a[0]->next != NULL)
+    i = 0;
+    while (i < size)
 	{
-		smaller = *a;
-		tmp = a[0]->next;
-		while(tmp != NULL)
-		{
-			if (smaller->number > tmp->number)
-				smaller = tmp;
-			tmp = tmp->next;
-		}
-		while(smaller != *a)
+		if((*a)->index < aux)
+			pb(a, b);
+		else
 			ra(a);
-		pb(a, b);
+		i++;
 	}
-	pb(a, b);
-	while(b[0]->next != NULL)
-		pa(a, b);
-	pa(a, b);
-	return ;
+    return ;
+}
+
+int		ft_sqrt(int size)
+{
+	int	i;
+	i = 1;
+	while (i * i <= size)
+		i++;
+	return (i - 1);
 }

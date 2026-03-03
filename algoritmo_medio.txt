@@ -54,13 +54,13 @@ Paso 2: Mover elementos chunk por chunk
 
 Para cada chunk:
 
-Recorremos la pila a buscando elementos que estén dentro del rango del chunk actual.
+Recorremos la pila a buscando elementos que estén dentro del rango del chunk actual
 
-Cuando encontramos uno, lo movemos a b con pb.
+Cuando encontramos uno, lo movemos a b con pb
 
-Para minimizar movimientos, usamos ra o rra para acercar el número a la cabeza de la pila.
+Para minimizar movimientos, usamos ra o rra para acercar el número a la cabeza de la pila
 
-Repetimos hasta que todos los números del chunk estén en b.
+Repetimos hasta que todos los números del chunk estén en b
 
 Nota: A veces también hacemos un pequeño truco: si el número es menor que la mitad del chunk, lo movemos al final de b con rb para preparar el orden correcto, esto reduce movimientos cuando reconstruimos a.
 
@@ -79,3 +79,33 @@ Repetimos hasta que b esté vacío.
 Resultado:
 
 Ahora a está completamente ordenada.
+
+
+
+
+
+
+
+
+
+
+
+
+para cada nodo en stack_a
+    nodo->index = posicion_en_array_ordenado(nodo->value);
+⚠️ Consejo importante:
+NO reemplaces el valor original.
+Guarda el índice en otro campo:
+
+typedef struct s_node
+{
+    int value;
+    int index;
+    struct s_node *next;
+} t_node;
+
+Calcular el tamaño del chunkj:
+int chunk_count = sqrt(size);
+int chunk_size = size / chunk_count;
+
+⚠️ Importante: incluye los restos en el último chunk.
