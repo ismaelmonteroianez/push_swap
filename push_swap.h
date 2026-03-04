@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:45 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/03 20:11:57 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/04 19:51:21 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,13 @@ void	*ft_medium(t_list **a, t_list **b);
 void    ft_quicksort(int *numbers,int first, int last);
 int		ft_sqrt(int size);
 void    ft_medium_sort_aux(t_list **a, t_list **b, int aux, int size);
+int		ft_lst_pos(t_list **b, int size, t_list *bigger);
 void	pa(t_list **a, t_list **b);
 void	pb(t_list **a, t_list **b);
 void	ra(t_list **a);
 void	rb(t_list **b);
 void	rrr(t_list **a, t_list **b);
-
+void	rra(t_list **a);
+void	rrb(t_list **b);
 
 #endif

@@ -6,11 +6,26 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 19:57:19 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/03 20:16:11 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/04 19:45:29 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_lst_pos(t_list **b, int size, t_list *bigger)
+{
+	t_list *tmp;
+	int		i;
+	
+	tmp = *b;
+	i = 0;
+	while (bigger->number != tmp->number)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
+}
 
 void    ft_medium_sort_aux(t_list **a, t_list **b, int aux, int size)
 {

@@ -19,7 +19,7 @@
 ✅9. Comprobar el rango de desordenacion de la list
 ❌10. Dependiendo del rango, tendremos tres algoritmos
       ✅10.1 Uno simple. Algoritmo simple (O(n²)) → Inserción o selección adaptada a pilas
-      ❌10.2 Uno medio. Algoritmo intermedio (O(n√n)) → Orden por chunks
+      ✅10.2 Uno medio. Algoritmo intermedio (O(n√n)) → Orden por chunks
       ❌10.3 Y uno complejo. Algoritmo complejo (O(n log n)) → Radix sort adaptado a pilas
 
    ❌ 11. Algoritmo adaptativo
@@ -34,3 +34,5 @@
 --bench
 
 ❌❌❌PENSAR LUEGO: SI MEDIUM FALLA HAY QUE LIBERAR t_list a y FLAGS
+
+❌ Si nos pasan una lista de numeros ordenados y nos pasan bench no devolvemos nada
