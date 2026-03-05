@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 12:51:03 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/04 20:24:34 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/05 20:11:09 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ float	ft_disorder_index(t_list **a)
 	total_pairs = 0;
 	i = 0;
 	size = ft_lstsize(*a);
-	while(i < size - 1)
+	while (i < size - 1)
 	{
 		j = i + 1;
-		while(j < size)
+		while (j < size)
 		{
 			total_pairs++;
 			if (ft_lstiter(*a, i) > ft_lstiter(*a, j))
@@ -36,13 +36,16 @@ float	ft_disorder_index(t_list **a)
 		}
 		i++;
 	}
-	return (mistakes/total_pairs);
+	return (mistakes / total_pairs);
 }
 
 void	ft_sort(t_list **a, t_list **b, int	**flags)
 {
 	float	disorder_index;
+
 	disorder_index = ft_disorder_index(a);
-	ft_medium(a, b);
+	//ft_medium(a, b);
+	ft_complex(a, b);
+	//ft_simple(a, b);
 	return ;
 }

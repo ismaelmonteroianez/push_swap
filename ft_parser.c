@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:41:47 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/27 17:51:14 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/05 17:38:07 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ int	*ft_parser(int argc, char **argv, int *numbers_size)
 	char	**matrix;
 	int		check;
 	int		*numbers;
-	
+
 	matrix = ft_matrix_gen(argc, argv);
 	if (matrix == NULL)
 		return (NULL);

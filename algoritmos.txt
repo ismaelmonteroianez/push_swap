@@ -61,3 +61,25 @@ Si el bit = 0 → pb a pila b.
 Si el bit = 1 → ra para dejar en a.
 
 Al final de cada bit, vuelves todos los de b a a (pa).
+
+
+4. Lógica del radix en push_swap
+
+Para cada bit:
+
+Recorrer todo el stack A
+
+Mirar el bit actual
+
+Si es 0 → pb
+
+Si es 1 → ra
+
+Cuando terminas el ciclo → pa todo de vuelta
+
+
+if size == 2 → swap si está desordenado
+if size == 3 → sort3()
+if size == 4 → sort4()
+if size == 5 → sort5()
+else → radix_sort()

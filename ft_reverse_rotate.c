@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 17:54:48 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/26 19:56:39 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/05 17:38:49 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ void	rra(t_list **a)
 }
 
 void	rrb(t_list **b)
-{	
+{
 	if (ft_reverse_rotate(b) != 0)
 		write(1, "rrb\n", 4);
 }
 
 void	rrr(t_list **a, t_list **b)
-{	
+{
 	if (a == NULL || *a == NULL || (*a)->next == NULL
 		|| b == NULL || *b == NULL || (*b)->next == NULL)
 		return ;

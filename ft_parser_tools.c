@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 19:26:52 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/02/27 19:16:11 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/05 17:38:27 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ int	count_total_numbers(int argc, char **argv)
 
 int	ft_isflag(char *s)
 {
-	int result;
-	
+	int	result;
+
 	result = 0;
 	if (ft_strcmp(s, "--simple") == 0)
 		result = 1;

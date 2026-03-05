@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:03 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/04 20:11:52 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/05 18:22:26 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	ft_imprimir(t_list	*a, t_list	*b)
 {
 	printf("Lista a:\n");
-	while(a)
+	while (a)
 	{
 		printf("%d\n", a->number);
 		a = a->next;
 	}
 	printf("Lista b:\n");
-	while(b)
+	while (b)
 	{
 		printf("%d\n", b->number);
 		b = b->next;

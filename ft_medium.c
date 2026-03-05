@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:57:27 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/04 20:09:10 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/05 20:00:29 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	ft_move_to_a(t_list **a, t_list **b, int size)
 {
 	t_list	*tmp;
 	t_list	*bigger;
-	
-	while((*b)->next != NULL)
+
+	while ((*b)->next != NULL)
 	{
 		bigger = *b;
 		tmp = (*b)->next;
-		while(tmp != NULL)
+		while (tmp != NULL)
 		{
 			if (bigger->number < tmp->number)
 				bigger = tmp;
@@ -29,13 +29,13 @@ void	ft_move_to_a(t_list **a, t_list **b, int size)
 		}
 		if (ft_lst_pos(b, size, bigger) < size / 2)
 		{
-			while(bigger != *b)
+			while (bigger != *b)
 				rb(b);
 			pa(a, b);
 		}
 		else
 		{
-			while(bigger != *b)
+			while (bigger != *b)
 				rrb(b);
 			pa(a, b);
 		}
@@ -58,9 +58,9 @@ void	ft_move_to_b(t_list **a, t_list **b, int size)
 	block_size = size_aux / block_count;
 	rest = size_aux - (block_count * block_size);
 	aux = block_size;
-	while(block_count != 0)
+	while (block_count != 0)
 	{
-		if(rest != 0 && block_count == 1)
+		if (rest != 0 && block_count == 1)
 			aux = aux + rest;
 		ft_medium_sort_aux(a, b, aux, size_aux);
 		block_count--;
@@ -75,14 +75,14 @@ void	ft_index_numbers(t_list **a, int *numbers, int size)
 {
 	t_list	*tmp;
 	int		i;
-	
+
 	tmp = *a;
-	while(tmp != NULL)
+	while (tmp != NULL)
 	{
 		i = 0;
-		while(i < size)
+		while (i < size)
 		{
-			if(numbers[i] == tmp->number)
+			if (numbers[i] == tmp->number)
 			{
 				tmp->index = i;
 				i = size;
@@ -94,7 +94,7 @@ void	ft_index_numbers(t_list **a, int *numbers, int size)
 	return ;
 }
 
-int		*gen_array_numbers(t_list **a, int size)
+int	*gen_array_numbers(t_list **a, int size)
 {
 	int		*numbers;
 	int		i;
@@ -105,7 +105,7 @@ int		*gen_array_numbers(t_list **a, int size)
 		return (NULL);
 	tmp = *a;
 	i = 0;
-	while(tmp != NULL)
+	while (tmp != NULL)
 	{
 		numbers[i] = tmp->number;
 		i++;
@@ -116,12 +116,17 @@ int		*gen_array_numbers(t_list **a, int size)
 
 void	*ft_medium(t_list **a, t_list **b)
 {
-    int		size;
+	int		size;
 	int		*numbers;
 	int		block_count;
 	int		block_size;
 
 	size = ft_lstsize(*a);
+	if (size <= 5)
+	{
+		ft_tiny_sort(a, b, size);
+		return (NULL);
+	}
 	numbers = gen_array_numbers(a, size);
 	if (numbers == NULL)
 		return (NULL);
@@ -129,5 +134,5 @@ void	*ft_medium(t_list **a, t_list **b)
 	ft_index_numbers(a, numbers, size);
 	free(numbers);
 	ft_move_to_b(a, b, size);
-	return (numbers);
+	return (NULL);
 }
