@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:57:27 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/05 20:00:29 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/06 19:28:20 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,17 @@ void	ft_move_to_a(t_list **a, t_list **b, int size)
 				bigger = tmp;
 			tmp = tmp->next;
 		}
-		if (ft_lst_pos(b, size, bigger) < size / 2)
+		while (bigger != *b)
 		{
-			while (bigger != *b)
+			if (ft_lst_pos(b, size, bigger) < size / 2)
 				rb(b);
-			pa(a, b);
-		}
-		else
-		{
-			while (bigger != *b)
+			else
 				rrb(b);
-			pa(a, b);
 		}
+		pa(a, b);
 		size--;
 	}
 	pa(a, b);
-	return ;
 }
 
 void	ft_move_to_b(t_list **a, t_list **b, int size)
@@ -51,23 +46,26 @@ void	ft_move_to_b(t_list **a, t_list **b, int size)
 	int		block_count;
 	int		block_size;
 	int		aux;
-	int		size_aux;
+	int 	i;
 
-	size_aux = size;
-	block_count = ft_sqrt(size_aux);
-	block_size = size_aux / block_count;
-	rest = size_aux - (block_count * block_size);
+	block_count = ft_sqrt(size);
+	block_size = size / block_count;
+	rest = size - (block_count * block_size);
 	aux = block_size;
 	while (block_count != 0)
 	{
+		i = 0;
 		if (rest != 0 && block_count == 1)
 			aux = aux + rest;
-		ft_medium_sort_aux(a, b, aux, size_aux);
+		while (i < size)
+		{
+			ft_medium_sort_aux(a, b, aux);
+			i++;
+		}
 		block_count--;
 		aux = aux + block_size;
-		size_aux = size_aux - block_size;
+		size = size - block_size;
 	}
-	ft_move_to_a(a, b, size);
 	return ;
 }
 
@@ -134,5 +132,6 @@ void	*ft_medium(t_list **a, t_list **b)
 	ft_index_numbers(a, numbers, size);
 	free(numbers);
 	ft_move_to_b(a, b, size);
+	ft_move_to_a(a, b, size);
 	return (NULL);
 }

@@ -6,46 +6,56 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 12:51:03 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/05 20:11:09 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/06 20:23:58 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-float	ft_disorder_index(t_list **a)
+void	ft_one_flag(t_list **a, t_list **b, int flags)
 {
-	float	mistakes;
-	float	total_pairs;
-	int		i;
-	int		j;
-	int		size;
-
-	mistakes = 0;
-	total_pairs = 0;
-	i = 0;
-	size = ft_lstsize(*a);
-	while (i < size - 1)
+	if (flags == 1)
+		ft_simple(a, b);
+	else if (flags == 2)
+		ft_medium(a, b);
+	else if (flags == 3)
+		ft_complex(a, b);
+	else if (flags == 4)
+		ft_adaptive(a, b);
+	else if (flags == 5)
 	{
-		j = i + 1;
-		while (j < size)
-		{
-			total_pairs++;
-			if (ft_lstiter(*a, i) > ft_lstiter(*a, j))
-				mistakes++;
-			j++;
-		}
-		i++;
+		ft_adaptive(a, b);
+		printf("falta la funcion");
 	}
-	return (mistakes / total_pairs);
 }
+void	ft_two_flag(t_list **a, t_list **b, int **flags)
+{
+	if ((*flags)[0] == 5)
+	{
+		ft_one_flag(a, b, (*flags)[1]);
+		printf("bench en primera posicion");
+	}
+	else
+	{
+		ft_one_flag(a, b, (*flags)[0]);
+		printf("bench en segunda posicion");
+	}
+}
+
 
 void	ft_sort(t_list **a, t_list **b, int	**flags)
 {
-	float	disorder_index;
 
-	disorder_index = ft_disorder_index(a);
-	//ft_medium(a, b);
-	ft_complex(a, b);
-	//ft_simple(a, b);
+	int		num_flags;
+	
+	num_flags = 0;
+	while ((*flags)[num_flags] != 0)
+		num_flags++;
+	if (num_flags == 0)
+		ft_adaptive(a, b);
+	else if (num_flags == 1)
+		ft_one_flag(a, b, (*flags)[0]);
+	else if (num_flags == 2)
+		ft_two_flag(a, b, flags);
 	return ;
 }

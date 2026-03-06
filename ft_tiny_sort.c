@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 19:22:12 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/05 19:59:54 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/06 19:55:02 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ void	ft_three(t_list **a)
 		sa(a);
 		rra(a);
 	}
-	else if (first > third)
+	else if (first > second && second < third && first > third)
 		ra(a);
 	else if (second > third && first < third)
 	{
 		sa(a);
 		ra(a);
 	}
-	else
+	else if (first < second && second > third && first > third)
 		rra(a);
 	return ;
 }
