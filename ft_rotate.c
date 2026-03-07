@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 17:38:58 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/26 19:40:39 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/07 16:39:39 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,25 @@ int	ft_rotate(t_list **list)
 	return (1);
 }
 
-void	ra(t_list **a)
+void	ra(t_list **a, t_bench *bench_result)
 {
 	if (ft_rotate(a) != 0)
+	{
 		write(1, "ra\n", 3);
+		bench_result->ra = bench_result->ra + 1;
+	}
 }
 
-void	rb(t_list **b)
+void	rb(t_list **b, t_bench *bench_result)
 {
 	if (ft_rotate(b) != 0)
+	{
 		write(1, "rb\n", 3);
+		bench_result->rb = bench_result->rb + 1;
+	}
 }
 
-void	rr(t_list **b, t_list **a)
+void	rr(t_list **b, t_list **a, t_bench *bench_result)
 {
 	if (a == NULL || *a == NULL || (*a)->next == NULL
 		|| b == NULL || *b == NULL || (*b)->next == NULL)
@@ -45,4 +51,5 @@ void	rr(t_list **b, t_list **a)
 	ft_rotate(a);
 	ft_rotate(b);
 	write(1, "rr\n", 3);
+	bench_result->rr = bench_result->rr + 1;
 }

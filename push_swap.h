@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:45 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/07 13:27:22 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/03/07 18:14:37 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_bench
 {
 	float	disorder;
 	int		strategy;
+	int		algorithm;
 	int		sa;
 	int		sb;
 	int		ss;
@@ -40,16 +41,7 @@ typedef struct s_bench
 	int		rra;
 	int		rrb;
 	int		rrr;
-} t_bench;
-
-/*
-typedef struct s_matrix
-{
-	struct s_list 	*a;
-	struct s_list 	*b;
-	size_t			count_sa;
-}
-*/
+}	t_bench;
 
 int		*ft_parser(int argc, char **argv, int *numbers_size);
 char	**ft_split(char const *s, char c);
@@ -83,30 +75,32 @@ int		ft_push(t_list **a, t_list **b);
 int		ft_rotate(t_list **list);
 int		ft_reverse_rotate(t_list **list);
 void	ft_sort(t_list **a, t_list **b, int	**flags);
-void	ft_simple(t_list **a, t_list **b);
-int		ft_medium(t_list **a, t_list **b);
+void	ft_simple(t_list **a, t_list **b, t_bench *bench_result);
+int		ft_medium(t_list **a, t_list **b, t_bench *bench_result);
 void	ft_quicksort(int *numbers, int first, int last);
-void	ft_tiny_sort(t_list **a,  t_list **b, int size);
+void	ft_tiny_sort(t_list **a, t_list **b, int size, t_bench *bench_result);
 int		ft_sqrt(int size);
-void	ft_medium_sort_aux(t_list **a, t_list **b, int aux);
+void	ft_medium_sort_aux(t_list **a, t_list **b, int aux, t_bench *bench_result);
 int		ft_lst_pos(t_list **b, int size, t_list *bigger);
 int		*gen_array_numbers(t_list **a, int size);
 void	ft_index_numbers(t_list **a, int *numbers, int size);
-int 	ft_complex(t_list **a, t_list **b);
-int		ft_adaptive(t_list **a, t_list **b);
+int		ft_complex(t_list **a, t_list **b, t_bench	*bench_result);
+int		ft_adaptive(t_list **a, t_list **b, t_bench	*bench_result);
 float	ft_disorder_index(t_list **a);
-int		ft_one_flag(t_list **a, t_list **b, int flags);
-void	ft_two_flag(t_list **a, t_list **b, int **flags);
-void	sa(t_list **a);
-void	sb(t_list **b);
-void	ss(t_list **a, t_list **b);
-void	pa(t_list **a, t_list **b);
-void	pb(t_list **a, t_list **b);
-void	ra(t_list **a);
-void	rb(t_list **b);
-void	rr(t_list **b, t_list **a);
-void	rrr(t_list **a, t_list **b);
-void	rra(t_list **a);
-void	rrb(t_list **b);
+int		ft_one_flag(t_list **a, t_list **b, int flags, t_bench *bench_result);
+void	ft_two_flag(t_list **a, t_list **b, int **flags, t_bench *bench_result);
+void	ft_bench(t_bench *bench_result);
+int		ft_printnbr(int nbr);
+void	sa(t_list **a, t_bench *bench_result);
+void	sb(t_list **b, t_bench *bench_result);
+void	ss(t_list **a, t_list **b, t_bench *bench_result);
+void	pa(t_list **a, t_list **b, t_bench *bench_result);
+void	pb(t_list **a, t_list **b, t_bench *bench_result);
+void	ra(t_list **a, t_bench *bench_result);
+void	rb(t_list **b, t_bench *bench_result);
+void	rr(t_list **b, t_list **a, t_bench *bench_result);
+void	rrr(t_list **a, t_list **b, t_bench *bench_result);
+void	rra(t_list **a, t_bench *bench_result);
+void	rrb(t_list **b, t_bench *bench_result);
 
 #endif

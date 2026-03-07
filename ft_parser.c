@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:41:47 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/05 17:38:07 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/07 19:19:27 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_check_nbr(char **matrix)
 	while (matrix[i] != NULL)
 	{
 		j = 0;
-		if (matrix[i][j] == '-')
+		if (matrix[i][j] == '-' || matrix[i][j] == '+')
 		{
 			j++;
 			if (matrix[i][j] == '\0')

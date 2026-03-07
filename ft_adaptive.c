@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_adaptive.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 18:11:53 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/07 13:22:50 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/03/07 18:30:01 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,21 @@ float	ft_disorder_index(t_list **a)
 	return (mistakes / total_pairs);
 }
 
-int	ft_adaptive(t_list **a, t_list **b)
+int	ft_adaptive(t_list **a, t_list **b, t_bench	*bench_result)
 {
 	float	disorder_index;
 
+	bench_result->strategy = 4;
 	disorder_index = ft_disorder_index(a);
 	if (disorder_index < 0.2)
-		ft_simple(a, b);
+		ft_simple(a, b, bench_result);
 	else if (disorder_index < 0.5)
-	{	
-		if (ft_medium(a, b) == 0)
+	{
+		if (ft_medium(a, b, bench_result) == 0)
 			return (0);
-	}	
+	}
 	else
-		if (ft_complex(a, b) == 0)
+		if (ft_complex(a, b, bench_result) == 0)
 			return (0);
 	return (1);
-}	
+}

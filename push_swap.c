@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:03 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/06 17:55:43 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/07 16:21:27 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	main(int argc, char **argv)
 		free(flags);
 		return (0);
 	}
-	
 	ft_sort(&a, &b, &flags);
 	//ft_imprimir(a, b);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 20:42:53 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/26 19:52:46 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/07 16:43:23 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,20 @@ int	ft_push(t_list **a, t_list **b)
 	return (1);
 }
 
-void	pa(t_list **a, t_list **b)
+void	pa(t_list **a, t_list **b, t_bench *bench_result)
 {
 	if (ft_push(b, a) != 0)
+	{
 		write(1, "pa\n", 3);
+		bench_result->pa = bench_result->pa + 1;
+	}
 }
 
-void	pb(t_list **a, t_list **b)
+void	pb(t_list **a, t_list **b, t_bench *bench_result)
 {
 	if (ft_push(a, b) != 0)
+	{
 		write(1, "pb\n", 3);
+		bench_result->pb = bench_result->pb + 1;
+	}
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_medium.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:57:27 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/07 13:12:23 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/03/07 18:16:46 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_move_to_a(t_list **a, t_list **b, int size)
+void	ft_move_to_a(t_list **a, t_list **b, int size, t_bench *bench_result)
 {
 	t_list	*tmp;
 	t_list	*bigger;
@@ -30,23 +30,23 @@ void	ft_move_to_a(t_list **a, t_list **b, int size)
 		while (bigger != *b)
 		{
 			if (ft_lst_pos(b, size, bigger) < size / 2)
-				rb(b);
+				rb(b, bench_result);
 			else
-				rrb(b);
+				rrb(b, bench_result);
 		}
-		pa(a, b);
+		pa(a, b, bench_result);
 		size--;
 	}
-	pa(a, b);
+	pa(a, b, bench_result);
 }
 
-void	ft_move_to_b(t_list **a, t_list **b, int size)
+void	ft_move_to_b(t_list **a, t_list **b, int size, t_bench *bench_result)
 {
 	int		rest;
 	int		block_count;
 	int		block_size;
 	int		aux;
-	int 	i;
+	int		i;
 
 	block_count = ft_sqrt(size);
 	block_size = size / block_count;
@@ -59,7 +59,7 @@ void	ft_move_to_b(t_list **a, t_list **b, int size)
 			aux = aux + rest;
 		while (i < size)
 		{
-			ft_medium_sort_aux(a, b, aux);
+			ft_medium_sort_aux(a, b, aux, bench_result);
 			i++;
 		}
 		block_count--;
@@ -112,17 +112,18 @@ int	*gen_array_numbers(t_list **a, int size)
 	return (numbers);
 }
 
-int	ft_medium(t_list **a, t_list **b)
+int	ft_medium(t_list **a, t_list **b, t_bench *bench_result)
 {
 	int		size;
 	int		*numbers;
 	int		block_count;
 	int		block_size;
 
+	bench_result->algorithm = 2;
 	size = ft_lstsize(*a);
 	if (size <= 5)
 	{
-		ft_tiny_sort(a, b, size);
+		ft_tiny_sort(a, b, size, bench_result);
 		return (1);
 	}
 	numbers = gen_array_numbers(a, size);
@@ -131,7 +132,7 @@ int	ft_medium(t_list **a, t_list **b)
 	ft_quicksort(numbers, 0, size - 1);
 	ft_index_numbers(a, numbers, size);
 	free(numbers);
-	ft_move_to_b(a, b, size);
-	ft_move_to_a(a, b, size);
+	ft_move_to_b(a, b, size, bench_result);
+	ft_move_to_a(a, b, size, bench_result);
 	return (1);
 }

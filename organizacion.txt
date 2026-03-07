@@ -22,17 +22,20 @@
       ✅10.2 Uno medio. Algoritmo intermedio (O(n√n)) → Orden por chunks
       ✅10.3 Y uno complejo. Algoritmo complejo (O(n log n)) → Radix sort adaptado a pilas
             ✅TINY SORT PARA 2, 3, 4 y 5 MOVIMIENTOS EN COMPLEX O NOS PASAMOS DE MOVIMIENTOS
-    ❌ 11. Algoritmo adaptativo.
-    ❌ 12. BENCH.
+    ✅ 11. Algoritmo adaptativo.
+    ✅ 12. BENCH.
 
-❌TAREA QUE NOS FALTA: FLAGS
+✅TAREA QUE NOS FALTA: FLAGS
 
---simple
---medium
---complex
---adaptive
+✅--simple
+✅--medium
+✅--complex
+✅--adaptive
 
---bench
+✅✅--bench
 
-❌❌❌SI MEDIUM O COMPLEX FALLAN AL RESERVAR INT* HAY QUE LIBERAR t_list a y FLAGS
-❌❌❌LIBERAR MEMORIA DESPUES DE QUE EL ALGORITMO SE EJECUTE
+✅SI MEDIUM O COMPLEX FALLAN AL RESERVAR INT* HAY QUE LIBERAR t_list a y FLAGS
+✅LIBERAR MEMORIA DESPUES DE QUE EL ALGORITMO SE EJECUTE
+❌❌❌❌❌SI LA LISTA ESTA ORDENADA HAY QUE HACER BENCH IGUALMENTE
+       ❌❌❌❌(NOSOTROS NO MOSTRAMOS NADA)
+    ❌❌SI ESTAN ORDENADOS NO SE IMPRIME BIEN EL 00.00% DEL DISORDER

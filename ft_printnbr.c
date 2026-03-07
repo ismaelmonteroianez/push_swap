@@ -1,47 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_tools.c                                    :+:      :+:    :+:   */
+/*   ft_printnbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/03 19:57:19 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/07 16:54:37 by ismonter         ###   ########.fr       */
+/*   Created: 2026/03/07 17:32:15 by ismonter          #+#    #+#             */
+/*   Updated: 2026/03/07 17:37:40 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_lst_pos(t_list **b, int size, t_list *bigger)
+int	ft_printnbr(int nbr)
 {
-	t_list	*tmp;
-	int		i;
+	char	a;
+	int		n;
 
-	tmp = *b;
-	i = 0;
-	while (bigger->number != tmp->number)
+	n = 0;
+	if (nbr < 0)
 	{
-		i++;
-		tmp = tmp->next;
+		write(2, "-", 1);
+		nbr = nbr * -1;
+		n++;
 	}
-	return (i);
-}
-
-void	ft_medium_sort_aux(t_list **a, t_list **b, int aux, t_bench *bench_result)
-{
-	if ((*a)->index < aux)
-		pb(a, b, bench_result);
-	else
-		ra(a, bench_result);
-	return ;
-}
-
-int	ft_sqrt(int size)
-{
-	int	i;
-
-	i = 1;
-	while (i * i <= size)
-		i++;
-	return (i - 1);
+	if (nbr >= 10)
+	{
+		n = n + ft_printnbr(nbr / 10);
+		a = nbr % 10 + '0';
+		write(2, &a, 1);
+		n++;
+		return (n);
+	}
+	a = nbr + 48;
+	write(2, &a, 1);
+	n++;
+	return (n);
 }
