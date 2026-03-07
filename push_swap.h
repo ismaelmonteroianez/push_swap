@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:45 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/06 19:26:11 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/07 13:27:22 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,24 @@ typedef struct s_list
 	int				index;
 	struct s_list	*next;
 }	t_list;
+
+typedef struct s_bench
+{
+	float	disorder;
+	int		strategy;
+	int		sa;
+	int		sb;
+	int		ss;
+	int		pa;
+	int		pb;
+	int		ra;
+	int		rb;
+	int		rr;
+	int		rra;
+	int		rrb;
+	int		rrr;
+} t_bench;
+
 /*
 typedef struct s_matrix
 {
@@ -66,7 +84,7 @@ int		ft_rotate(t_list **list);
 int		ft_reverse_rotate(t_list **list);
 void	ft_sort(t_list **a, t_list **b, int	**flags);
 void	ft_simple(t_list **a, t_list **b);
-void	*ft_medium(t_list **a, t_list **b);
+int		ft_medium(t_list **a, t_list **b);
 void	ft_quicksort(int *numbers, int first, int last);
 void	ft_tiny_sort(t_list **a,  t_list **b, int size);
 int		ft_sqrt(int size);
@@ -74,10 +92,10 @@ void	ft_medium_sort_aux(t_list **a, t_list **b, int aux);
 int		ft_lst_pos(t_list **b, int size, t_list *bigger);
 int		*gen_array_numbers(t_list **a, int size);
 void	ft_index_numbers(t_list **a, int *numbers, int size);
-void	*ft_complex(t_list **a, t_list **b);
-void	ft_adaptive(t_list **a, t_list **b);
+int 	ft_complex(t_list **a, t_list **b);
+int		ft_adaptive(t_list **a, t_list **b);
 float	ft_disorder_index(t_list **a);
-void	ft_one_flag(t_list **a, t_list **b, int flags);
+int		ft_one_flag(t_list **a, t_list **b, int flags);
 void	ft_two_flag(t_list **a, t_list **b, int **flags);
 void	sa(t_list **a);
 void	sb(t_list **b);

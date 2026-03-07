@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bench.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 19:11:31 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/06 20:24:38 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/07 12:39:38 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_bench()
+void	ft_bench(t_list **a, t_list **b, t_bench *c)
 {
 
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_complex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 14:40:17 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/05 20:14:35 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/07 13:25:07 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	ft_radix_sort(t_list **a, t_list **b, int max_bits)
 	return ;
 }
 
-void	*ft_complex(t_list **a, t_list **b)
+int ft_complex(t_list **a, t_list **b)
 {
 	int		size;
 	int		*numbers;
@@ -91,16 +91,16 @@ void	*ft_complex(t_list **a, t_list **b)
 	if (size <= 5)
 	{
 		ft_tiny_sort(a, b, size);
-		return (NULL);
+		return (1);
 	}
 	numbers = gen_array_numbers(a, size);
 	if (numbers == NULL)
-		return (NULL);
+		return (0);
 	ft_quicksort(numbers, 0, size - 1);
 	ft_index_numbers(a, numbers, size);
 	free(numbers);
 	max_index = ft_get_max_number(a);
 	max_bits = ft_get_max_bits(max_index);
 	ft_radix_sort(a, b, max_bits);
-	return (NULL);
+	return (1);
 }

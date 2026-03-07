@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_medium.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:57:27 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/06 19:28:20 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/07 13:12:23 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int	*gen_array_numbers(t_list **a, int size)
 	return (numbers);
 }
 
-void	*ft_medium(t_list **a, t_list **b)
+int	ft_medium(t_list **a, t_list **b)
 {
 	int		size;
 	int		*numbers;
@@ -123,15 +123,15 @@ void	*ft_medium(t_list **a, t_list **b)
 	if (size <= 5)
 	{
 		ft_tiny_sort(a, b, size);
-		return (NULL);
+		return (1);
 	}
 	numbers = gen_array_numbers(a, size);
 	if (numbers == NULL)
-		return (NULL);
+		return (0);
 	ft_quicksort(numbers, 0, size - 1);
 	ft_index_numbers(a, numbers, size);
 	free(numbers);
 	ft_move_to_b(a, b, size);
 	ft_move_to_a(a, b, size);
-	return (NULL);
+	return (1);
 }
