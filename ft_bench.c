@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bench.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 19:11:31 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/07 19:57:43 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/08 18:37:34 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ void	ft_print_disorder(t_bench *bench_result)
 {
 	int	disorder;
 	
-	printf("%f\n", bench_result->disorder);
 	write(2, "[bench] disorder: ", 18);
 	disorder = bench_result->disorder * 10000;
 	if (disorder == 10000)

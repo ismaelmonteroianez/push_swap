@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parser.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:41:47 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/07 19:19:27 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/08 18:17:51 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,10 +130,5 @@ int	*ft_parser(int argc, char **argv, int *numbers_size)
 		return (NULL);
 	if (check_repeated_numbers(numbers, *numbers_size) == 0)
 		return (NULL);
-	if (ft_check_order(numbers, *numbers_size) == 1)
-	{
-		free(numbers);
-		return (NULL);
-	}
 	return (numbers);
 }
