@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:46:58 by ismonter          #+#    #+#             */
-/*   Updated: 2026/02/20 17:28:45 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/09 20:41:08 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	result = malloc(nmemb * size);
 	if (result == NULL)
 		return (NULL);
-	while (((char *)result)[i] != '\0')
+	while (i < size * nmemb)
 	{
 		((char *)result)[i] = '\0';
 		i++;

@@ -68,11 +68,11 @@ Para compilar el programa:
 
 Formato básico:
 
-./push_swap [numbers...]
+`./push_swap [numbers...]`
 
 Ejemplo:
 
-./push_swap 3 2 5 1 4
+`./push_swap 3 2 5 1 4`
 
 El programa imprimirá la secuencia de operaciones necesaria para ordenar el stack.
 
@@ -80,31 +80,25 @@ El programa imprimirá la secuencia de operaciones necesaria para ordenar el sta
 
 El programa permite forzar el algoritmo utilizado mediante flags.
 
-Flag	Estrategia
---simple	algoritmo O(n²)
---medium	algoritmo O(n√n)
---complex	algoritmo O(n log n)
---adaptive	selección automática
+**Flag**
+- `--simple` -> algoritmo O(n²)
+- `--medium`	-> algoritmo O(n√n)
+- `--complex`	-> algoritmo O(n log n)
+- `--adaptive` -> selección automática
 
 Ejemplo:
 
-./push_swap 5 2 8 1 3 --complex
+`./push_swap 5 2 8 1 3 --complex`
 
 Si no se especifica ningún selector, el programa utiliza por defecto:
 
---adaptive
+`--adaptive`
 
 # Índice de desorden
 
-Para seleccionar la estrategia adecuada se calcula un índice de desorden.
-
+Para seleccionar la estrategia adecuada se calcula un índice de desorden. 
 Este valor mide cuán lejos está la lista de estar ordenada.
-
 El índice se calcula comparando todos los pares posibles de elementos.
-
-Para cada par (i, j) con i < j:
-
-si a[i] > a[j] se considera un error de orden.
 
 El índice final se obtiene mediante:
 
@@ -112,11 +106,8 @@ disorder = mistakes / total_pairs
 
 Esto produce un valor entre:
 
-Valor	Significado
-0	lista completamente ordenada
-1	máximo desorden posible
-
-Este método corresponde al cálculo del ratio de inversiones, una métrica clásica en análisis de ordenación.
+- 0	-> lista completamente ordenada
+- 1	-> máximo desorden posible
 
 ## Estrategias de ordenación
 
@@ -132,114 +123,87 @@ Se eligió una adaptación de Selection Sort por su simplicidad y facilidad de i
 
 El motivo es que permite ordenar listas pequeñas o casi ordenadas con un número de operaciones relativamente bajo.
 
-La idea consiste en buscar el elemento mínimo en el stack A.
+La idea consiste en: 
+- Buscar el elemento mínimo en el stack A.
 
-Rotar A hasta colocar ese elemento en la cima.
+- Rotar A hasta colocar ese elemento en la cima.
 
-Enviarlo a B con `pb`.
+- Enviarlo a B con `pb`.
 
-Repetir hasta vaciar A.
+- Repetir hasta vaciar A.
 
-Devolver todos los elementos a A con `pa`.
+- Devolver todos los elementos a A con `pa`.
 
 # Algoritmo intermedio — O(n√n)
 
-La estrategia intermedia utiliza Chunk Sorting.
-
-División en bloques
+La estrategia intermedia utiliza Chunk Sorting. Se eligió un algoritmo basado en chunks (división en bloques) como estrategia intermedia debido a que ptimiza la cantidad de operaciones para listas parcialmente desordenadas mediante particionamiento por rangos.
 
 El número de bloques se calcula como:
 
-chunks = √n
+`chunks = √n`
 
 Cada chunk contiene aproximadamente:
 
-n / √n elementos.
+`n / √n elementos.`
 
-Proceso
+- Los valores se indexan previamente.
 
-Los valores se indexan previamente.
+- Los índices se dividen en rangos (chunks).
 
-Los índices se dividen en rangos (chunks).
+- Los elementos pertenecientes al chunk actual se envían a B con pb.
 
-Los elementos pertenecientes al chunk actual se envían a B con pb.
+- Los elementos restantes se rotan en A.
 
-Los elementos restantes se rotan en A.
-
-Una vez que todos los chunks han sido procesados, los elementos se devuelven a A.
-
-Reconstrucción
+- Una vez que todos los chunks han sido procesados, los elementos se devuelven a A.
 
 Para reconstruir A:
 
-Se busca el máximo en B.
+- Se busca el máximo en B.
 
-Se rota B usando rb o rrb según la posición del elemento.
+- Se rota B usando rb o rrb según si el numero se encuentra en la mitad de arriba o en la de abajo.
 
-Se devuelve a A con pa.
+- Se devuelve a A con pa.
 
 # Algoritmo complejo — O(n log n)
 
-El algoritmo complejo implementa una adaptación de Radix Sort.
+El algoritmo complejo implementa una adaptación de Radix Sort. Se utiliza una versión binaria LSD (Least Significant Bit). Este algoritmo garantiza complejidad logarítmica en el número de bits, lo que permite manejar listas grandes con muchas operaciones de manera eficiente.
 
-Se utiliza una versión binaria LSD (Least Significant Bit).
-
-Proceso
-
-Los números se indexan previamente.
+Los números se indexan previamente igual que en el algoritmo intermedio. Despues encontramos el numero mayor y miramos el numero de bits que tiene.
 
 Se procesan los bits de menor a mayor.
-
 Para cada bit:
-
-si el bit es 0 → pb
-
-si el bit es 1 → ra
+ - si el bit es 0 → pb
+ - si el bit es 1 → ra
 
 Una vez procesado el bit, todos los elementos de B se devuelven a A.
 
-Este proceso se repite para todos los bits necesarios para representar los índices.
+Este proceso se repite hasta el valor maximo de bits que encontramos anteriormente en el numero mas grande.
 
 # Indexación de valores
 
 Antes de ejecutar los algoritmos chunks o radix, los números se normalizan mediante indexación.
 
-Proceso:
+- Los valores se copian a un array temporal.
 
-Los valores se copian a un array temporal.
-
-El array se ordena utilizando Quicksort.
+- El array se ordena utilizando Quicksort.
 
 A cada número se le asigna su posición en el array ordenado.
 
-Ejemplo:
-
-Original: 42 5 100 8
-Ordenado: 5 8 42 100
-
-Indices: 2 0 3 1
-
-Esto permite trabajar con valores en el rango:
-
-0 → n-1
-
-lo que simplifica significativamente los algoritmos.
+Esto permite trabajar con los valores del array ordenado lo que simplifica significativamente los algoritmos.
 
 # Estrategia adaptativa
 
 El modo adaptativo selecciona automáticamente el algoritmo según el índice de desorden.
 
-Índice de desorden	Estrategia
-< 0.2	algoritmo simple
-0.2 – 0.5	algoritmo intermedio
-≥ 0.5	algoritmo complejo
-Justificación
+Si el indice de desorden es de < 0.2 usamos el algoritmo simple
+Si esta entre 0.2 y 0.5	usamos el algoritmo intermedio
+Si esta entre 0.5 y 1 usamos el algoritmo complejo
 
-Listas casi ordenadas pueden resolverse rápidamente con algoritmos simples.
+- Listas casi ordenadas pueden resolverse rápidamente con algoritmos simples.
 
-Listas parcialmente desordenadas se benefician de estrategias basadas en bloques.
+- Listas parcialmente desordenadas se benefician de estrategias basadas en bloques.
 
-Listas muy desordenadas requieren algoritmos con mejor complejidad asintótica.
+- Listas muy desordenadas requieren algoritmos de mayor complejidad 
 
 Este enfoque permite optimizar el número de operaciones según la estructura real de la entrada.
 
@@ -251,37 +215,35 @@ El programa incluye un modo opcional:
 
 Cuando se activa, el programa muestra estadísticas adicionales en stderr.
 
-Información mostrada:
+La informacion que mostramos es:
 
-índice de desorden
+- El índice de desorden
 
-estrategia utilizada
+- La estrategia utilizada
 
-complejidad teórica
+- La complejidad teórica
 
-número total de operaciones
+- El número total de operaciones
 
-número de operaciones por tipo
+- El número de operaciones por tipo
 
 Esto permite analizar el comportamiento del algoritmo para distintos inputs.
 
+Si los numeros estan ya ordenados, no se mostrará la estrategia utilizada debido a que no se usa ninguna.
+
 # Manejo de errores
 
-El programa detecta y gestiona errores comunes:
+El programa detecta y gestiona los siguientes errores:
 
-argumentos que no son enteros
+- Argumentos que no son enteros
 
-overflow de enteros
+- Overflow de enteros
 
-números duplicados
+- Números duplicados
 
-formato de entrada inválido
+- Formato de entrada inválido
 
-En caso de error se imprime:
-
-`Error`
-
-en stderr.
+En caso de error se imprime `Error` en stderr.
 
 # Recursos
 
@@ -296,10 +258,6 @@ https://www.geeksforgeeks.org/dsa/quick-sort-algorithm/
 
 # Uso de IA
 
-Se han utilizado herramientas de inteligencia artificial como apoyo para:
-
-revisión conceptual de algoritmos
-
-redacción del archivo README
+Se han utilizado herramientas de inteligencia artificial como apoyo para la revisión conceptual de algoritmos y la redacción del archivo README
 
 Todas las decisiones de diseño, implementación de algoritmos y desarrollo del código han sido realizadas por los autores del proyecto.
