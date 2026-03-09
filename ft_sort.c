@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 12:51:03 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/08 18:34:32 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/03/09 19:19:17 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,16 @@ void	ft_two_flag(t_list **a, t_list **b, int **flags, t_bench *bench_result)
 	}
 }
 
-void	ft_sort_check_flags(t_list **a, t_list **b, int	**flags, t_bench *bench_result)
+void	ft_sort_aux(t_list **a, t_list **b, int	**flags, t_bench *bench_result)
 {
 	int		num_flags;
 	int		i;
-	
+
 	i = 0;
 	num_flags = 0;
 	while ((*flags)[num_flags] != 0)
 		num_flags++;
-		if ((ft_disorder_index(a) * 100) == 0)
+	if ((ft_disorder_index(a) * 100) == 0)
 	{
 		while ((*flags)[i] != 0)
 		{
@@ -103,18 +103,17 @@ void	ft_sort_check_flags(t_list **a, t_list **b, int	**flags, t_bench *bench_res
 
 void	ft_sort(t_list **a, t_list **b, int	**flags)
 {
-	int		num_flags;
 	t_bench	*bench_result;
 
-	bench_result = ft_calloc(1 , sizeof(t_bench));
+	bench_result = ft_calloc(1, sizeof(t_bench));
 	if (bench_result == NULL)
-		{
-			ft_lstclear(a);
-			free(*flags);
-			return ;
-		}
+	{
+		ft_lstclear(a);
+		free(*flags);
+		return ;
+	}
 	ft_initialize(a, bench_result);
-	ft_sort_check_flags(a, b, flags, bench_result);
+	ft_sort_aux(a, b, flags, bench_result);
 	free(bench_result);
 	ft_lstclear(a);
 	free(*flags);

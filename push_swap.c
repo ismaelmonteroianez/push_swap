@@ -6,27 +6,11 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:03 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/07 16:21:27 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/09 19:05:46 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_imprimir(t_list	*a, t_list	*b)
-{
-	printf("Lista a:\n");
-	while (a)
-	{
-		printf("%d\n", a->number);
-		a = a->next;
-	}
-	printf("Lista b:\n");
-	while (b)
-	{
-		printf("%d\n", b->number);
-		b = b->next;
-	}
-}
 
 int	main(int argc, char **argv)
 {
@@ -50,6 +34,5 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	ft_sort(&a, &b, &flags);
-	//ft_imprimir(a, b);
 	return (0);
 }

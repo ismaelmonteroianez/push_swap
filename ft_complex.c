@@ -6,27 +6,12 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 14:40:17 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/07 18:17:04 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/09 19:16:17 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-bigger >> bits es un desplazamiento a la derecha (right shift).
-
-Desplaza los bits de bigger bits posiciones hacia la derecha.
-
-Ejemplo: si bigger = 5 (101):
-
-bits = 0 → 5 >> 0 = 101 → no es 0 → entra al bucle
-
-bits = 1 → 5 >> 1 = 10 → no es 0 → entra al bucle
-
-bits = 2 → 5 >> 2 = 1 → no es 0 → entra al bucle
-
-bits = 3 → 5 >> 3 = 0 → sale del bucle
-*/
 int	ft_get_max_bits(int bigger)
 {
 	int	bits;
@@ -53,7 +38,7 @@ int	ft_get_max_number(t_list **a)
 	return (bigger->index);
 }
 
-void	ft_radix_sort(t_list **a, t_list **b, int max_bits, t_bench *bench_result)
+void	ft_radix(t_list **a, t_list **b, int max_bits, t_bench *bench_result)
 {
 	int	i;
 	int	j;
@@ -102,6 +87,6 @@ int	ft_complex(t_list **a, t_list **b, t_bench *bench_result)
 	free(numbers);
 	max_index = ft_get_max_number(a);
 	max_bits = ft_get_max_bits(max_index);
-	ft_radix_sort(a, b, max_bits, bench_result);
+	ft_radix(a, b, max_bits, bench_result);
 	return (1);
 }

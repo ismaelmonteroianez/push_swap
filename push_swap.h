@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:09:45 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/07 18:14:37 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/09 19:20:46 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int		free_error_matrix(char **matrix);
 long	ft_atol(char *str);
 int		matrix_len(char **matrix);
 int		ft_check_int(long n);
-int		ft_check_order(int *numbers, int numbers_size);
 int		ft_isflag(char *s);
 int		ft_flags(int argc, char **argv, int *numbers, int **flags);
 t_list	*ft_lstnew(int number);
@@ -80,8 +79,8 @@ int		ft_medium(t_list **a, t_list **b, t_bench *bench_result);
 void	ft_quicksort(int *numbers, int first, int last);
 void	ft_tiny_sort(t_list **a, t_list **b, int size, t_bench *bench_result);
 int		ft_sqrt(int size);
-void	ft_medium_sort_aux(t_list **a, t_list **b, int aux, t_bench *bench_result);
-int		ft_lst_pos(t_list **b, int size, t_list *bigger);
+void	ft_medium_aux(t_list **a, t_list **b, int aux, t_bench *bench_result);
+int		ft_lst_pos(t_list **b, t_list *bigger);
 int		*gen_array_numbers(t_list **a, int size);
 void	ft_index_numbers(t_list **a, int *numbers, int size);
 int		ft_complex(t_list **a, t_list **b, t_bench	*bench_result);

@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:57:27 by ismonter          #+#    #+#             */
-/*   Updated: 2026/03/07 18:16:46 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/09 19:20:16 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_move_to_a(t_list **a, t_list **b, int size, t_bench *bench_result)
 		}
 		while (bigger != *b)
 		{
-			if (ft_lst_pos(b, size, bigger) < size / 2)
+			if (ft_lst_pos(b, bigger) < size / 2)
 				rb(b, bench_result);
 			else
 				rrb(b, bench_result);
@@ -59,7 +59,7 @@ void	ft_move_to_b(t_list **a, t_list **b, int size, t_bench *bench_result)
 			aux = aux + rest;
 		while (i < size)
 		{
-			ft_medium_sort_aux(a, b, aux, bench_result);
+			ft_medium_aux(a, b, aux, bench_result);
 			i++;
 		}
 		block_count--;
@@ -116,8 +116,6 @@ int	ft_medium(t_list **a, t_list **b, t_bench *bench_result)
 {
 	int		size;
 	int		*numbers;
-	int		block_count;
-	int		block_size;
 
 	bench_result->algorithm = 2;
 	size = ft_lstsize(*a);

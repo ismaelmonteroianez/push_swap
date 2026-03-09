@@ -6,7 +6,7 @@
 /*   By: ismonter <ismonter@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 19:26:52 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/03/05 17:38:27 by ismonter         ###   ########.fr       */
+/*   Updated: 2026/03/09 19:18:44 by ismonter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,6 @@ int	ft_check_int(long n)
 	}
 	else
 		return (1);
-}
-
-int	ft_check_order(int *numbers, int numbers_size)
-{
-	int	i;
-
-	i = 0;
-	while (i < numbers_size - 1)
-	{
-		if (numbers[i] > numbers[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
 }
 
 int	count_total_numbers(int argc, char **argv)
